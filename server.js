@@ -18,12 +18,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true
-})
+// const uri = process.env.ATLAS_URI;
+// mongoose.connect(uri, {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useUnifiedTopology: true
+// })
 
 const connection = mongoose.connection;
 connection.once("open", () => {
@@ -33,7 +33,7 @@ connection.once("open", () => {
 // Connect to the Mongo DB
 //mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactDishApp");
 //mLab discontinued as of 9/1/20 -- mongoose.connect(process.env.MONGODB_URI || "mongodb://gina:NamJee1@ds141043.mlab.com:41043/heroku_zzcz8hmq");
-// mongoose.connect(process.env.ATLAS_URI || "mongodb+srv://gina2521:NamJee2521@cluster0.xapww.mongodb.net/topYori?retryWrites=true&w=majority");
+mongoose.connect(process.env.ATLAS_URI || "mongodb+srv://gina2521:NamJee2521@cluster0.yw95s.gcp.mongodb.net/topYori?retryWrites=true&w=majority");
 
 // Start the API server
 app.listen(PORT, function () {
